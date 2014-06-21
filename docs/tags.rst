@@ -122,3 +122,20 @@ demo.form
 It works just like include, but will use a block from the current widget
 template.
 
+
+``trans`` strings
+==================
+
+If you want to pass a string to a template tag, but want that string to
+be translated, you may do the following:
+
+.. code-block:: html+django
+
+    {% load i18n formulation %}
+    
+    {% form "demo.html" %}
+        {% trans 'Save' as submit %}
+        {% use "actions" submit=submit %}
+    {% endform %}
+
+This is actually documented at https://docs.djangoproject.com/en/1.7/topics/i18n/translation/#trans-template-tag
